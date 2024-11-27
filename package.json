@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./server",
     "start:dev": "nodemon ./ -e js,py,json",
+    "game:dev": "nodemon ./gameTest.js -e js,py,json",
     "migrate": "npx sequelize-cli db:migrate",
     "unmigrate": "npx sequelize-cli db:migrate:undo:all",
     "seed": "npx sequelize-cli db:seed:all"
