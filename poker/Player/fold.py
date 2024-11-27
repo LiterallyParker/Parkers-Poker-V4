@@ -1,4 +1,4 @@
-def fold(Player):
+def fold(Player, GameState):
     """
     Player folds, resetting their hand and setting status to 'folded'.
     :param Player: Player Object

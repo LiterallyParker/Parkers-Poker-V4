@@ -6,4 +6,4 @@ def flip(GameState, num=1):
         cards (list): card array, usually Player['hand'].
         num (int, optional): Amount to deal. Defaults to 1.
     """
-    GameState['community_cards'].extend([GameState['Dealer']['deck'].pop() for _ in range(num)])
+    GameState['community_cards'].extend([GameState['dealer']['deck'].pop() for _ in range(num)])

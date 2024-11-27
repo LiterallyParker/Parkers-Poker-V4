@@ -12,7 +12,9 @@ def generate_info(cards: list):
         cards (list): List of encoded cards (e.g., [0b101100, 0b111001, ...])
         
     Returns:
-        dict: Contains 'ranks', 'suits', 'values'
+        ranks: { '2': 2, '4': 2, '9': 1, 'Jack': 1, 'Ace': 1 }
+        suits: { 'Clubs': 3, 'Diamonds': 2, 'Hearts': 1, 'Spades': 1 }
+        values: [ 14, 11, 9, 4, 2 ]
     """
     decoded_cards = decode_many(cards)
     
@@ -29,12 +31,10 @@ def generate_info(cards: list):
         suits[suit] += 1
         
         rank_value = next(key for key, name in RANKS.items() if name == rank)
+        if rank_value == 14:
+            values.append(1)
         values.append(rank_value)
     
-    values.sort(reverse=True)
+    values = sorted(set(values), reverse=True)
     
-    return {
-        'ranks':ranks,
-        'suits':suits,
-        'values':values
-    }
+    return ranks, suits, values

@@ -3,9 +3,9 @@ from Player import format_string as format_player
 from Dealer import format_string as format_dealer
 
 def format_string(GameState):
-    formatted_players = "\n".join(format_player(player) for player in GameState['Players'])
+    formatted_players = "\n".join(format_player(player) for player in GameState['players'])
     return (
 f"""Players:\n{formatted_players}
 Community: {decode_many(GameState['community_cards'])}\n
-Deck:\n{format_dealer(GameState['Dealer'])}"""
+Deck:\n{format_dealer(GameState['dealer'])}"""
 )

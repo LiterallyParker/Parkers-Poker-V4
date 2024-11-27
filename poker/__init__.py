@@ -1,9 +1,10 @@
-from Player import *
-from Dealer import *
-from Cards import *
-from GameState import *
+import Player
+import Dealer
+import Cards
+import Scoring
+import Game
 
-Players = [
+players = [
     {
         "name":"BillyThaKid",
         "chips":500,
@@ -34,9 +35,9 @@ Players = [
     },
 ]
 
-GameState = {
-    "Players": Players,
-    "Dealer": {},
+gamestate = {
+    "players": players,
+    "dealer": {},
     "community_cards":[],
     "pot":0,
     "current_bet":0,
@@ -44,12 +45,18 @@ GameState = {
     "allow_bets":False
 }
 
-start(GameState)
-deal_all(GameState)
-flip(GameState, 3)
-flip(GameState, 1)
-flip(GameState, 1)
-cards = GameState['Players'][0]['hand'] + GameState['community_cards']
-info = generate_info(cards)
-for key, value in info.items():
-    print(key, value)
+from time import time
+starting = time()
+
+Game.start(gamestate)
+Game.deal_all(gamestate)
+Game.flip(gamestate, 3)
+Game.flip(gamestate, 1)
+Game.flip(gamestate, 1)
+SCORE = Player.score(gamestate['players'][0], gamestate['community_cards'])
+
+print(Game.format_string(gamestate))
+print(SCORE)
+
+ending = time()
+print("Runtime:", ending - starting)
