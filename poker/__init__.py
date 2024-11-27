@@ -1,8 +1,7 @@
-import Player
-import Dealer
-import Cards
-import Scoring
+import Hand
 import Game
+import Scoring
+import Scoring.format_string
 
 players = [
     {
@@ -45,18 +44,36 @@ gamestate = {
     "allow_bets":False
 }
 
+# Start Run Timer
 from time import time
 starting = time()
 
+# Start Game
 Game.start(gamestate)
-Game.deal_all(gamestate)
-Game.flip(gamestate, 3)
-Game.flip(gamestate, 1)
-Game.flip(gamestate, 1)
-SCORE = Player.score(gamestate['players'][0], gamestate['community_cards'])
 
+# Deal to players
+Game.deal_all(gamestate)
+
+# Flop
+Game.flip(gamestate, 3)
+
+# Turn
+Game.flip(gamestate, 1)
+
+# River
+Game.flip(gamestate, 1)
+SCORE0 = Scoring.score(gamestate['players'][0]['hand'] + gamestate['community_cards'])
+SCORE1 = Scoring.score(gamestate['players'][1]['hand'] + gamestate['community_cards'])
+SCORE2 = Scoring.score(gamestate['players'][2]['hand'] + gamestate['community_cards'])
+SCORE3 = Scoring.score(gamestate['players'][3]['hand'] + gamestate['community_cards'])
+# Format and print the gamestate and player 1's score
 print(Game.format_string(gamestate))
-print(SCORE)
+print(f'{"CARDS:":^30}')
+print(Hand.format_string(gamestate['players'][3]['hand']))
+print(Scoring.format_string(SCORE0))
+print(Scoring.format_string(SCORE1))
+print(Scoring.format_string(SCORE2))
+print(Scoring.format_string(SCORE3))
 
 ending = time()
 print("Runtime:", ending - starting)

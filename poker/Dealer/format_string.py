@@ -1,5 +1,5 @@
-from Cards import decode_many
+from Cards import extract_many
 
 def format_string(Dealer):
-    cards = decode_many(Dealer['deck'])
+    cards = extract_many(Dealer['deck'])
     return cards

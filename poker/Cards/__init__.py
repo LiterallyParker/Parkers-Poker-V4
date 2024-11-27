@@ -1,17 +1,15 @@
-from .decode_many import decode_many
-from .decode_one import decode_one
-from .get_rank import get_rank
-from .get_suit import get_suit
-from .suits import SUITS
-from .ranks import RANKS
+from .extract_many import extract_many
+from .extract_one import extract_one
+from .extract_rank import extract_rank
+from .extract_suit import extract_suit
 from .generate_info import generate_info
+from .format_string import format_string
 
 __all__ = [
-    'decode_many',
-    'decode_one',
-    'get_rank',
-    'get_suit',
-    'SUITS',
-    'RANKS',
-    'generate_info'
+    'extract_many',
+    'extract_one',
+    'extract_rank',
+    'extract_suit',
+    'generate_info',
+    'format_string'
     ]
