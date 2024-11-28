@@ -1,7 +1,9 @@
+import Cards
 import Hand
 import Game
 import Scoring
 import Scoring.format_string
+from Global import SCORES
 
 players = [
     {
@@ -10,28 +12,7 @@ players = [
         "hand":[],
         "status":"active",
         "current_bet":0,
-    },
-    {
-        "name":"JohnMarston",
-        "chips":500,
-        "hand":[],
-        "status":"active",
-        "current_bet":0,
-    },
-    {
-        "name":"ColonelSanders",
-        "chips":500,
-        "hand":[],
-        "status":"active",
-        "current_bet":0,
-    },
-    {
-        "name":"Parker",
-        "chips":500,
-        "hand":[],
-        "status":"active",
-        "current_bet":0,
-    },
+    }
 ]
 
 gamestate = {
@@ -44,36 +25,36 @@ gamestate = {
     "allow_bets":False
 }
 
-# Start Run Timer
-from time import time
-starting = time()
 
-# Start Game
-Game.start(gamestate)
+def run_one():
+    # Start Game
+    Game.start(gamestate)
 
-# Deal to players
-Game.deal_all(gamestate)
+    # Deal to players
+    Game.deal_all(gamestate)
 
-# Flop
-Game.flip(gamestate, 3)
+    # Flop
+    Game.flip(gamestate, 3)
 
-# Turn
-Game.flip(gamestate, 1)
+    # Turn
+    Game.flip(gamestate, 1)
 
-# River
-Game.flip(gamestate, 1)
-SCORE0 = Scoring.score(gamestate['players'][0]['hand'] + gamestate['community_cards'])
-SCORE1 = Scoring.score(gamestate['players'][1]['hand'] + gamestate['community_cards'])
-SCORE2 = Scoring.score(gamestate['players'][2]['hand'] + gamestate['community_cards'])
-SCORE3 = Scoring.score(gamestate['players'][3]['hand'] + gamestate['community_cards'])
-# Format and print the gamestate and player 1's score
-print(Game.format_string(gamestate))
-print(f'{"CARDS:":^30}')
-print(Hand.format_string(gamestate['players'][3]['hand']))
-print(Scoring.format_string(SCORE0))
-print(Scoring.format_string(SCORE1))
-print(Scoring.format_string(SCORE2))
-print(Scoring.format_string(SCORE3))
-
-ending = time()
-print("Runtime:", ending - starting)
+    # River
+    Game.flip(gamestate, 1)
+    
+    return (Scoring.score(gamestate['players'][0], gamestate))
+    
+def test_for(score_name):
+    # Start Run Timer
+    target_score = next((key for key, value in SCORES.items() if value == score_name), None)
+    from time import time
+    starting = time()
+    score = run_one()
+    while not score[0] == target_score:
+        score = run_one()
+    print(Game.format_string(gamestate))
+    print(Scoring.format_string(score))
+    ending = time()
+    print("Runtime:", ending - starting)
+    
+test_for("Straight")

@@ -1,4 +1,4 @@
-from .high_card_sort import high_card_sort
+from .high_card import high_card
 from .pair import pair
 from .two_pair import two_pair
 from .three_of_a_kind import three_of_a_kind
@@ -12,7 +12,7 @@ from .score import score
 from .format_string import format_string
 
 __all__ = [
-    "high_card_sort",
+    "high_card",
     "pair",
     "two_pair",
     "three_of_a_kind",
