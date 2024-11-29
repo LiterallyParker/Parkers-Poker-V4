@@ -3,10 +3,13 @@ from ._sorting_key import _sorting_key
 
 def full_house(card_bytes):
     """
-    Returns a sorted copy of the input cards if conditions for a Full House are met
+    Returns a sorted copy of the input cards if conditions for a full house are met
 
     Args:
         card_bytes (list): list of cards
+        
+    Returns:
+        list: list of card bytes if a full house, ordered
     """
     extracted_cards = extract_many(card_bytes)
     ranks = count_ranks(card_bytes)

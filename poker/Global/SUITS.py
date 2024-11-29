@@ -1,6 +1,6 @@
 SUITS = {
-    0:"Clubs",
-    1:"Diamonds",
-    2:"Hearts",
-    3:"Spades"
+    0:"clubs",
+    1:"diamonds",
+    2:"hearts",
+    3:"spades"
 }

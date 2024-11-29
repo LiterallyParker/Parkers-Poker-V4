@@ -3,14 +3,13 @@ from ._sorting_key import _sorting_key
 
 def flush(card_bytes: list):
     """
-    Returns a list of cards ordered first by flush cards (if any), followed by the other cards.
-    The flush cards are sorted by rank in descending order.
+    Returns a sorted copy of the input cards if conditions for a flush are met
 
     Args:
-        card_bytes (list): list of card bytes
+        card_bytes (list): list of compressed card bytes
 
     Returns:
-        list: a list of card bytes sorted with flush cards first, followed by other cards
+        list: list of compressed card bytes if a flush, ordered
     """
     extracted_cards = extract_many(card_bytes)
     suits = count_suits(card_bytes)

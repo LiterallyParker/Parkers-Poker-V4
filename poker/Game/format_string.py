@@ -6,5 +6,6 @@ def format_string(GameState):
 f"""Players:\n{formatted_players}
 {"-"*30}
 {"Community:":^30}\n
-{format_hand(GameState['community_cards'])}"""
+{format_hand(GameState['community_cards'])}
+"""
 )

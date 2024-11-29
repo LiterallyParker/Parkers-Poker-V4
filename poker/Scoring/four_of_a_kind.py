@@ -3,10 +3,13 @@ from ._sorting_key import _sorting_key
 
 def four_of_a_kind(card_bytes):
     """
-    Returns a sorted copy of the input cards if conditions for a Four of a Kind are met
+    Returns a sorted copy of the input cards if conditions for a four of a kind are met
 
     Args:
         card_bytes (list): list of cards
+        
+    Returns:
+        list: list of card bytes if a four of a kind, ordered
     """
     extracted_cards = extract_many(card_bytes)
     ranks = count_ranks(card_bytes)

@@ -1,12 +1,12 @@
 SCORES = {
-    0:"High Card",
-    1:"Pair",
-    2:"Two Pair",
-    3:"Three of a kind",
-    4:"Straight",
-    5:"Flush",
-    6:"Full House",
-    7:"Four of a kind",
-    8:"Straight flush",
-    9:"Royal Flush"
+    0:"high card",
+    1:"pair",
+    2:"two pair",
+    3:"three of a kind",
+    4:"straight",
+    5:"flush",
+    6:"full house",
+    7:"four of a kind",
+    8:"straight flush",
+    9:"royal flush"
 }

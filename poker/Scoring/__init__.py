@@ -6,8 +6,6 @@ from .straight import straight
 from .flush import flush
 from .full_house import full_house
 from .four_of_a_kind import four_of_a_kind
-from .straight_flush import straight_flush
-from .royal_flush import royal_flush
 from .score import score
 from .format_string import format_string
 
@@ -20,8 +18,6 @@ __all__ = [
     "flush",
     "full_house",
     "four_of_a_kind",
-    "straight_flush",
-    "royal_flush",
     "score",
     "format_string"
 ]
