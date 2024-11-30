@@ -1,4 +1,4 @@
-from Cards import extract_many
+from Card import extract_many
 
 def format_string(Dealer):
     cards = extract_many(Dealer['deck'])

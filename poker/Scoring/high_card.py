@@ -1,4 +1,4 @@
-from Cards import extract_many, compress_many
+from Card import extract_many, compress_many
 from ._sorting_key import _sorting_key
 
 def high_card(card_bytes):

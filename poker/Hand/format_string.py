@@ -1,7 +1,8 @@
-from Cards import format_string as format_card
+from Card import format_string as format_card
 
 def format_string(card_bytes: list):
-    string = ""
+    strings = [f"{'-'*20:^30}"]
     for card_byte in card_bytes:
-        string += f"{format_card(card_byte):^30}\n"
-    return string
+        strings.append(f'{format_card(card_byte):^30}')
+    strings.append(f"{'-'*20:^30}")
+    return "\n".join(strings)

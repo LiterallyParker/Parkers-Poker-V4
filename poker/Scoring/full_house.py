@@ -1,4 +1,4 @@
-from Cards import count_ranks, extract_many, compress_many
+from Card import count_ranks, extract_many, compress_many
 from ._sorting_key import _sorting_key
 
 def full_house(card_bytes):
@@ -19,9 +19,9 @@ def full_house(card_bytes):
     
     if three_kind_rank and pair_rank:
     
-        three_kind_cards = [card for card in extracted_cards if card[1] == three_kind_rank]
-        pair_cards = [card for card in extracted_cards if card[1] == pair_rank]
-        other_cards = [card for card in extracted_cards if card[1] != pair_rank and card[1] != three_kind_rank]
+        three_kind_cards = [card for card in extracted_cards if card[0] == three_kind_rank]
+        pair_cards = [card for card in extracted_cards if card[0] == pair_rank]
+        other_cards = [card for card in extracted_cards if card[0] != pair_rank and card[0] != three_kind_rank]
         
         sorted_three_kind = sorted(three_kind_cards, key=_sorting_key, reverse=True)
         sorted_pair = sorted(pair_cards, key=_sorting_key, reverse=True)

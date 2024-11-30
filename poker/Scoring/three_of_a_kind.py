@@ -1,4 +1,4 @@
-from Cards import count_ranks, extract_many, compress_many
+from Card import count_ranks, extract_many, compress_many
 from ._sorting_key import _sorting_key
 def three_of_a_kind(card_bytes):
     """
@@ -15,8 +15,8 @@ def three_of_a_kind(card_bytes):
     
     three_kind_rank = next((rank for rank, count in ranks.items() if count == 3), None)
     if three_kind_rank:
-        three_kind_cards = [card for card in extracted_cards if card[1] == three_kind_rank]
-        other_cards = [card for card in extracted_cards if card[1] != three_kind_rank]
+        three_kind_cards = [card for card in extracted_cards if card[0] == three_kind_rank]
+        other_cards = [card for card in extracted_cards if card[0] != three_kind_rank]
         
         sorted_three_kind = sorted(three_kind_cards, key=_sorting_key, reverse=True)
         sorted_other = sorted(other_cards, key=_sorting_key, reverse=True)

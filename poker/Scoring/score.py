@@ -1,4 +1,4 @@
-from Cards import extract_rank
+from Card import extract_rank
 from Scoring import high_card, pair, two_pair, three_of_a_kind, straight, flush, full_house, four_of_a_kind
 
 def score(player, game_state):

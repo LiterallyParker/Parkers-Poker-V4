@@ -25,7 +25,7 @@ def generate_shuffled_deck():
     deck = []
     for suit in range(4):
         for rank in range(2, 15):
-            card = (suit << 4) | rank
+            card = (rank << 2) | suit
             deck.append(card)
     import random
     random.shuffle(deck)

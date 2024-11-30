@@ -1,4 +1,4 @@
-from Cards import count_ranks, extract_many, compress_many
+from Card import count_ranks, extract_many, compress_many
 from ._sorting_key import _sorting_key
 
 def two_pair(card_bytes):
@@ -21,8 +21,8 @@ def two_pair(card_bytes):
     
     top_two_pairs = sorted(pair_ranks, reverse=True)[:2]
     
-    pair_cards = [card for card in extracted_cards if card[1] in top_two_pairs]
-    other_cards = [card for card in extracted_cards if card[1] not in top_two_pairs]
+    pair_cards = [card for card in extracted_cards if card[0] in top_two_pairs]
+    other_cards = [card for card in extracted_cards if card[0] not in top_two_pairs]
     
     sorted_pairs = sorted(pair_cards, key=_sorting_key, reverse=True)
     sorted_other = sorted(other_cards, key=_sorting_key, reverse=True)

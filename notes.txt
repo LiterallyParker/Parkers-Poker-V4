@@ -6,14 +6,6 @@ Patience. You will beat this.
 Back to work.
 
 app/
-   game/
-      __init__.py
-      card_utils.py
-      dealer.py
-      game_engine.py
-      game_state.py
-      hold_em.py
-      player.py
    auth/
       generateJWT.js
       index.js
@@ -31,6 +23,7 @@ app/
       password/
          index.js
          updatePassword.js
+      rooms/
       users/
          getUserById.js
          getUsersByUsername.js
@@ -83,6 +76,14 @@ app/
       index.js
       user.js
    node_modules/
+   poker/
+      __init__.py
+      card_utils.py
+      dealer.py
+      game_engine.py
+      game_state.py
+      hold_em.py
+      player.py
    routes/
       account.js
       index.js

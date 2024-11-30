@@ -1,4 +1,4 @@
-from Cards import count_ranks, extract_many, compress_many
+from Card import count_ranks, extract_many, compress_many
 from ._sorting_key import _sorting_key
 
 def four_of_a_kind(card_bytes):
@@ -17,8 +17,8 @@ def four_of_a_kind(card_bytes):
     four_kind_rank = next((rank for rank, count in ranks.items() if count == 4), None)
     
     if four_kind_rank:
-        four_kind_cards = [card for card in extracted_cards if card[1] == four_kind_rank]
-        other_cards = [card for card in extracted_cards if card[1] != four_kind_rank]
+        four_kind_cards = [card for card in extracted_cards if card[0] == four_kind_rank]
+        other_cards = [card for card in extracted_cards if card[0] != four_kind_rank]
         
         sorted_four_kind = sorted(four_kind_cards, key=_sorting_key, reverse=True)
         sorted_other = sorted(other_cards, key=_sorting_key, reverse=True)
